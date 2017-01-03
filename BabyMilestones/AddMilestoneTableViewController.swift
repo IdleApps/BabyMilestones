@@ -1,8 +1,8 @@
 //
-//  UpdateTableViewController.swift
+//  AddMilestoneViewController.swift
 //  BabyMilestones
 //
-//  Created by Luke Cheskin on 17/11/2016.
+//  Created by Luke Cheskin on 06/11/2016.
 //  Copyright © 2016 IdleApps. All rights reserved.
 //
 
@@ -11,94 +11,75 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-var dateResults = ""
+var date = ""
 
-class UpdateTableViewController: UIViewController {
+class AddMilestoneTableViewController: UIViewController {
 
-    var databaseRef: FIRDatabaseReference! {
-        return FIRDatabase.database().reference()
-    }
-    
-    var milestone: Milestone!
-    
     @IBOutlet var saveButton: UIBarButtonItem!
     @IBOutlet var datePickerView: UIDatePicker!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var descriptionTextField: UITextView!
+    
+    var databaseRef: FIRDatabaseReference! {
+        return FIRDatabase.database().reference()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        datePickerView.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         date = formatter.string(from: datePickerView.date)
-        dateResults = date
-        print(dateResults)
+        print(date)
         
         if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
             if languageChoice == "English" {
                 
                 saveButton.title = "Save"
-                self.title = "Update"
+                self.title = "Create"
                 nameTextField.placeholder = "Enter Milestone Name"
+                descriptionTextField.text = "Enter Milestone Description"
                 datePickerView.locale = Locale.current
                 
             } else if languageChoice == "French" {
                 
                 saveButton.title = "Garder"
-                self.title = "Mettre à jour"
+                self.title = "Créer"
                 nameTextField.placeholder = "Entrez le nom du jalon"
+                descriptionTextField.text = "Entrez jalon la description"
                 datePickerView.locale = Locale.current
                 
             }
         }
+        
     }
-
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        datePickerView.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
-        
-        nameTextField.text = milestone.title
-        descriptionTextField.text = milestone.content
-        print("1: " + descriptionTextField.text)
-        
-        // Getting the date
-        let dates = descriptionTextField.text!
-        let dateResult = String(dates.characters.prefix(10))
-        print(dateResult)
-        print("2: " + descriptionTextField.text)
-        
-        // Getting the description
-        var desc = descriptionTextField.text!
-        let descCharacterLength = desc.characters.count-13
-        let descResult = String(desc.characters.suffix(descCharacterLength))
-        descriptionTextField.text! = descResult
-        print("3: " + descriptionTextField.text)
-        print("descResult: " + descResult)
-        
-        // Applying the date to the UIDatePicker
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        let dateFromString = dateFormatter.date(from: dateResult)
-        datePickerView.setDate(dateFromString!, animated: true)
-        print("4: " + descriptionTextField.text)
-    }
     
     func datePickerChanged(sender: UIDatePicker) {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         date = formatter.string(from: datePickerView.date)
-        dateResults = date
+        
         print("Selected date is: \(date)")
     }
-    
-    @IBAction func updateMilestoneAction(_ sender: Any) {
+
+    @IBAction func saveMilestoneAction(_ sender: Any) {
         
         var userID: String!
         userID = FIRAuth.auth()?.currentUser?.uid
+        
+        let milestoneRef = databaseRef.child("users/" + userID).childByAutoId()
+        
+        let red = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
+        let blue = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
+        let green = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
         
         var title = String()
         var content = String()
@@ -108,6 +89,7 @@ class UpdateTableViewController: UIViewController {
             title = nameTextField.text!
         } else {
             // A milestone has not been entered
+            
             if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
                 if languageChoice == "English" {
                     
@@ -121,43 +103,34 @@ class UpdateTableViewController: UIViewController {
                     
                 }
             }
-
         }
-        
-        
         
         if descriptionTextField.text != "" {
             // A milestone description has been entered
-            content = dateResults + " - " + descriptionTextField.text!
-            print(content)
+            content = date + " - " + descriptionTextField.text!
         } else {
             // A milestone description has not been entered
+            
             if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
-                if languageChoice == "English" {
-                    
-                    descriptionTextField.text = "Default milestone description"
-                    content = dateResults + " - " + descriptionTextField.text!
-                    
-                } else if languageChoice == "French" {
-                    
-                    descriptionTextField.text = "La description jalon par défaut"
-                    content = dateResults + " - " + descriptionTextField.text!
-                    print("French")
-                    
-                }
+            if languageChoice == "English" {
+                
+                descriptionTextField.text = "Default milestone description"
+                content = date + " - " + descriptionTextField.text!
+                
+            } else if languageChoice == "French" {
+                
+                descriptionTextField.text = "La description jalon par défaut"
+                content = date + " - " + descriptionTextField.text!
+                
             }
-
         }
+    }
         
-        let updatedMilestone = Milestone(title: title, content: content, uid: FIRAuth.auth()!.currentUser!.uid, red: milestone.red, blue: milestone.blue, green: milestone.green)
+        let milestone = Milestone(title: title, content: content, uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
         
-        let key = milestone.ref!.key
-        
-        let updateRef = databaseRef.child("users/" + userID + "/" + key)
-        
-        updateRef.updateChildValues(updatedMilestone.toAnyObject())
-        
+        milestoneRef.setValue(milestone.toAnyObject())
         self.navigationController?.popToRootViewController(animated: true)
+        
         
     }
     

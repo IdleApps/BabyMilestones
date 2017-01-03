@@ -11,7 +11,8 @@ import Firebase
 import FirebaseAuth
 
 class MilestoneTableViewController: UITableViewController {
-
+    
+    @IBOutlet var logoutButton: UIBarButtonItem!
     var milestoneArray = [Milestone]()
     var databaseRef: FIRDatabaseReference!
     
@@ -26,6 +27,20 @@ class MilestoneTableViewController: UITableViewController {
             return
         }
         
+        if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+            if languageChoice == "English" {
+                
+                logoutButton.title = "Logout"
+                self.title = "Milestones"
+                
+            } else if languageChoice == "French" {
+                
+                logoutButton.title = "Se déconnecter"
+                self.title = "Jalons"
+                
+            }
+        }
+        
         let databaseRef = FIRDatabase.database().reference().child("users/" + userID)
         
         
@@ -45,14 +60,22 @@ class MilestoneTableViewController: UITableViewController {
         }) { (error) in
             print(error.localizedDescription)
         }
-            print("Timer of 5 seconds exceeded (viewWILLAppear)")
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("viewDidLoad")
+        // Adding the background image to the TableView
+        let backgroundImage = UIImage(named: "Image_TableView")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = imageView.bounds
+        imageView.addSubview(blurView)
         
         var userID: String!
         userID = FIRAuth.auth()?.currentUser?.uid
@@ -83,6 +106,7 @@ class MilestoneTableViewController: UITableViewController {
         }
     }
     
+   
     @IBAction func logoutAction(_ sender: Any) {
         do {
             try FIRAuth.auth()?.signOut()
@@ -91,7 +115,6 @@ class MilestoneTableViewController: UITableViewController {
         } catch let error {
             print(error)
         }
-
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,6 +128,10 @@ class MilestoneTableViewController: UITableViewController {
         cell.milestoneNameTextField.text = milestoneArray[indexPath.row].title
         cell.milestoneDescriptionTextField.text = milestoneArray[indexPath.row].content
         cell.colourView.backgroundColor = UIColor(red: milestoneArray[indexPath.row].red, green: milestoneArray[indexPath.row].green, blue: milestoneArray[indexPath.row].blue, alpha: 1.0)
+        
+        // Making the cell transparent
+            cell.backgroundColor = UIColor.clear
+            cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
         return cell
     }
 
@@ -115,6 +142,9 @@ class MilestoneTableViewController: UITableViewController {
             milestoneArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.reloadData()
+            
+            // Adding the label
+            
         }
     }
     

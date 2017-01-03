@@ -10,14 +10,37 @@ import UIKit
 
 class ResetPasswordViewController: UIViewController {
 
+    @IBOutlet var resetPasswordLabel: UILabel!
     @IBOutlet var emailTextField: CustomizableTextField!
+    @IBOutlet var resetPasswordButton: CustomizableButton!
+    @IBOutlet var backButton: CustomizableButton!
     
     let networkingService = NetworkingService()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+            if languageChoice == "English" {
+                
+                resetPasswordLabel.text = "Reset Password"
+                emailTextField.placeholder = "Email"
+                resetPasswordButton.setTitle("Reset Password", for: .normal)
+                backButton.setTitle("Back", for: .normal)
+                
+            } else if languageChoice == "French" {
+                
+                resetPasswordLabel.text = "Réinitialiser le mot de passe"
+                emailTextField.placeholder = "Émail"
+                resetPasswordButton.setTitle("Réinitialiser le mot de passe", for: .normal)
+                backButton.setTitle("Arrière", for: .normal)
+                
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     

@@ -56,9 +56,22 @@ struct NetworkingService {
             if error != nil {
                 print(error!)
                 
-                let alertController = SCLAlertView()
-                alertController.addButton("Close", action: self.resultsNil)
-                alertController.showError("Ooops!", subTitle: "It seems that account hasn't been found.")
+                if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                    if languageChoice == "English" {
+                        
+                        let alertController = SCLAlertView()
+                        alertController.addButton("Close", action: self.resultsNil)
+                        alertController.showError("Ooops!", subTitle: "It seems that account hasn't been found.")
+
+                        
+                    } else if languageChoice == "French" {
+                        
+                        let alertController = SCLAlertView()
+                        alertController.addButton("Fermer", action: self.resultsNil)
+                        alertController.showError("Ooops!", subTitle: "Il semble que le compte n'a pas été trouvé.")
+                        
+                    }
+                }
             } else {
                 var userUID: String!
                 print("User logged in successfully")
@@ -77,11 +90,23 @@ struct NetworkingService {
             if error != nil {
                 print(error!)
                 
-                let alertController = SCLAlertView()
-                alertController.addButton("Help", action: self.clickedForHelpFromRegister)
-                alertController.addButton("Close", action: self.resultsNil)
-                alertController.showError("Ooops!", subTitle: "Somethings gone wrong. Click help for more info.")
-                
+                if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                    if languageChoice == "English" {
+                        
+                        let alertController = SCLAlertView()
+                        alertController.addButton("Help", action: self.clickedForHelpFromRegister)
+                        alertController.addButton("Close", action: self.resultsNil)
+                        alertController.showError("Ooops!", subTitle: "Somethings gone wrong. Click help for more info.")
+                        
+                    } else if languageChoice == "French" {
+                        
+                        let alertController = SCLAlertView()
+                        alertController.addButton("Aidez-moi", action: self.clickedForHelpFromRegister)
+                        alertController.addButton("Fermer", action: self.resultsNil)
+                        alertController.showError("Ooops!", subTitle: "Quelque chose a mal tourné. Cliquez sur Aide pour plus d'informations.")
+                        
+                    }
+                }
             } else {
                 print("Account created successfully")
                 UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
@@ -91,9 +116,21 @@ struct NetworkingService {
                     
                     // The following code will activate after 1 seconds
                     
-                    let alertController = SCLAlertView()
-                    alertController.addButton("Close", action: self.resultsNil)
-                    alertController.showSuccess("Welcome to BabyMilestones!", subTitle: "We're so glad you joined us! We've created some important milestones for you. Tap on one to edit it or create your own by pressing the + icon at the top.\n\nHave fun!")
+                    if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                        if languageChoice == "English" {
+                            
+                            let alertController = SCLAlertView()
+                            alertController.addButton("Close", action: self.resultsNil)
+                            alertController.showSuccess("Welcome to BabyMilestones!", subTitle: "We're so glad you joined us! We've created some important milestones for you. Tap on one to edit it or create your own by pressing the + icon at the top. Don't forget to add the date and any other information that you'd like.\n\nHave fun!")
+                            
+                        } else if languageChoice == "French" {
+                            
+                            let alertController = SCLAlertView()
+                            alertController.addButton("Fermer", action: self.resultsNil)
+                            alertController.showSuccess("Bienvenue sur BabyMilestones!", subTitle: "Nous sommes si heureux que vous vous joigniez à nous! Nous avons créé des jalons importants pour vous. Appuyez sur un pour le modifier ou créer le vôtre en appuyant sur l'icône + en haut. N'oubliez pas d'ajouter la date et toute autre information que vous souhaitez.\n\nS'amuser!")
+                            
+                        }
+                    }
                 }
                 
                 // Adding the default milestones to the user upon acount creation
@@ -111,8 +148,21 @@ struct NetworkingService {
                     let blue = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let green = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let milestoneRef = self.databaseRef.child("users/" + userID).childByAutoId()
-                    let milestone1 = Milestone(title: "Rolling over", content: "Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
-                    milestoneRef.setValue(milestone1.toAnyObject())
+                    
+                    if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                        if languageChoice == "English" {
+                            
+                            let milestone1 = Milestone(title: "Rolling over", content: "01/01/2016 - Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone1.toAnyObject())
+                            
+                        } else if languageChoice == "French" {
+                            
+                            let milestone1 = Milestone(title: "Rouler dessus", content: "01/01/2016 - Cliquez pour modifier", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone1.toAnyObject())
+                            
+                        }
+                    }
+                    
                 }
                 
                 // First full sleep
@@ -127,8 +177,20 @@ struct NetworkingService {
                     let blue = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let green = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let milestoneRef = self.databaseRef.child("users/" + userID).childByAutoId()
-                    let milestone2 = Milestone(title: "First full sleep", content: "Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
-                    milestoneRef.setValue(milestone2.toAnyObject())
+                    
+                    if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                        if languageChoice == "English" {
+                            
+                            let milestone2 = Milestone(title: "First full sleep", content: "01/01/2016 - Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone2.toAnyObject())
+                            
+                        } else if languageChoice == "French" {
+                            
+                            let milestone2 = Milestone(title: "Premier sommeil complet", content: "01/01/2016 - Cliquez pour modifier!", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone2.toAnyObject())
+                            
+                        }
+                    }
                 }
                 
                 // First bath
@@ -143,8 +205,20 @@ struct NetworkingService {
                     let blue = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let green = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let milestoneRef = self.databaseRef.child("users/" + userID).childByAutoId()
-                    let milestone3 = Milestone(title: "First bath", content: "Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
-                    milestoneRef.setValue(milestone3.toAnyObject())
+                    
+                    if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                        if languageChoice == "English" {
+                            
+                            let milestone3 = Milestone(title: "First bath", content: "01/01/2016 - Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone3.toAnyObject())
+                            
+                        } else if languageChoice == "French" {
+                            
+                            let milestone3 = Milestone(title: "Premier bain", content: "01/01/2016 - Cliquez pour modifier", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone3.toAnyObject())
+                            
+                        }
+                    }
                 }
                 
                 // First smile
@@ -159,8 +233,22 @@ struct NetworkingService {
                     let blue = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let green = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let milestoneRef = self.databaseRef.child("users/" + userID).childByAutoId()
-                    let milestone4 = Milestone(title: "First smile", content: "Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
-                    milestoneRef.setValue(milestone4.toAnyObject())
+                    
+                    if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                        if languageChoice == "English" {
+                            
+                            let milestone4 = Milestone(title: "First smile", content: "01/01/2016 - Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone4.toAnyObject())
+
+                            
+                        } else if languageChoice == "French" {
+                            
+                            let milestone4 = Milestone(title: "Premier sourire", content: "01/01/2016 - Cliquez pour modifier", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone4.toAnyObject())
+
+                            
+                        }
+                    }
                 }
                 
                 // First steps
@@ -175,8 +263,20 @@ struct NetworkingService {
                     let blue = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let green = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let milestoneRef = self.databaseRef.child("users/" + userID).childByAutoId()
-                    let milestone5 = Milestone(title: "First steps", content: "Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
-                    milestoneRef.setValue(milestone5.toAnyObject())
+                    
+                    if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                        if languageChoice == "English" {
+                            
+                            let milestone5 = Milestone(title: "First steps", content: "01/01/2016 - Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone5.toAnyObject())
+                            
+                        } else if languageChoice == "French" {
+                            
+                            let milestone5 = Milestone(title: "Premiers pas", content: "01/01/2016 - Cliquez pour modifier", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone5.toAnyObject())
+                            
+                        }
+                    }
                 }
                 
                 // First tooth
@@ -191,8 +291,20 @@ struct NetworkingService {
                     let blue = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let green = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let milestoneRef = self.databaseRef.child("users/" + userID).childByAutoId()
-                    let milestone6 = Milestone(title: "First tooth", content: "Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
-                    milestoneRef.setValue(milestone6.toAnyObject())
+                    
+                    if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                        if languageChoice == "English" {
+                            
+                            let milestone6 = Milestone(title: "First tooth", content: "01/01/2016 - Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone6.toAnyObject())
+                            
+                        } else if languageChoice == "French" {
+                            
+                            let milestone6 = Milestone(title: "Première dent", content: "01/01/2016 - Cliquez pour modifier", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone6.toAnyObject())
+                            
+                        }
+                    }
                 }
                 
                 // First word
@@ -207,8 +319,20 @@ struct NetworkingService {
                     let blue = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let green = CGFloat(arc4random_uniform(UInt32(255.5)))/255.5
                     let milestoneRef = self.databaseRef.child("users/" + userID).childByAutoId()
-                    let milestone7 = Milestone(title: "First word", content: "Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
-                    milestoneRef.setValue(milestone7.toAnyObject())
+                    
+                    if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                        if languageChoice == "English" {
+                            
+                            let milestone7 = Milestone(title: "First word", content: "01/01/2016 - Click to edit", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone7.toAnyObject())
+                            
+                        } else if languageChoice == "French" {
+                            
+                            let milestone7 = Milestone(title: "Premier mot", content: "01/01/2016 - Cliquez pour modifier", uid: FIRAuth.auth()!.currentUser!.uid, red: red, blue: blue, green: green)
+                            milestoneRef.setValue(milestone7.toAnyObject())
+                            
+                        }
+                    }
                 }
             }
         })
@@ -219,18 +343,41 @@ struct NetworkingService {
             if error == nil {
                 print("Password reset email was sent successfully")
                 
-                let alertController = SCLAlertView()
-                alertController.addButton("Close", action: self.resultsNil)
-                alertController.showSuccess("Success", subTitle: "A password reset email has been send to " + email)
+                if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                    if languageChoice == "English" {
+                        
+                        let alertController = SCLAlertView()
+                        alertController.addButton("Close", action: self.resultsNil)
+                        alertController.showSuccess("Success", subTitle: "A password reset email has been send to " + email)
+                        
+                    } else if languageChoice == "French" {
+                        
+                        let alertController = SCLAlertView()
+                        alertController.addButton("Fermer", action: self.resultsNil)
+                        alertController.showSuccess("Le succès", subTitle: "Un email de réinitialisation de mot de passe a été envoyé à " + email)
+                    }
+                }
                 
             } else {
                 print(error!)
                 
-                let alertController = SCLAlertView()
-                alertController.addButton("Help", action: self.clickedForHelpFromReset)
-                alertController.addButton("Close", action: self.resultsNil)
-                alertController.showError("Ooops!", subTitle: "Somethings gone wrong. Click help for more info.")
-                
+                if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+                    if languageChoice == "English" {
+                        
+                        let alertController = SCLAlertView()
+                        alertController.addButton("Help", action: self.clickedForHelpFromReset)
+                        alertController.addButton("Close", action: self.resultsNil)
+                        alertController.showError("Ooops!", subTitle: "Somethings gone wrong. Click help for more info.")
+                        
+                    } else if languageChoice == "French" {
+                        
+                        let alertController = SCLAlertView()
+                        alertController.addButton("Aidez-moi", action: self.clickedForHelpFromReset)
+                        alertController.addButton("Fermer", action: self.resultsNil)
+                        alertController.showError("Ooops!", subTitle: "Quelque chose a mal tourné. Cliquez sur Aide pour plus d'informations.")
+                        
+                    }
+                }
             }
         })
     }
@@ -239,19 +386,41 @@ struct NetworkingService {
     
     func clickedForHelpFromRegister() {
         // The user has clicked the "Help" button
-        print("The user has clicked the HELP button")
         
-        let alertController = SCLAlertView()
-        alertController.addButton("Close", action: self.resultsNil)
-        alertController.showInfo("Help", subTitle: "These are some reasons why you're getting this error\n\n • The email is already taken\n • The email is badly formatted\n • Some credentials are missing")
+        if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+            if languageChoice == "English" {
+                
+                let alertController = SCLAlertView()
+                alertController.addButton("Close", action: self.resultsNil)
+                alertController.showInfo("Help", subTitle: "These are some reasons why you're getting this error\n\n • The email is already taken\n • The email is badly formatted\n • Some credentials are missing\n • The password must be more than 6 characters")
+                
+            } else if languageChoice == "French" {
+                
+                let alertController = SCLAlertView()
+                alertController.addButton("Fermer", action: self.resultsNil)
+                alertController.showInfo("Aidez-moi", subTitle: "Voici quelques raisons pour lesquelles vous recevez cette erreur\n\n • Le courriel est déjà pris\n • Le courriel est mal formaté\n • Certaines références sont manquantes\n • TLe mot de passe doit comporter plus de 6 caractères")
+                
+            }
+        }
     }
     
     func clickedForHelpFromReset() {
         // The user has clicked the "Help button"
-        print("The user has clicked the HELP button")
         
-        let alertController = SCLAlertView()
-        alertController.addButton("Close", action: self.resultsNil)
-        alertController.showInfo("Help", subTitle: "These are some reasons why you're getting this error\n\n • The email is badly formatted\n • The email isn't linked to an account")
+        if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+            if languageChoice == "English" {
+                
+                let alertController = SCLAlertView()
+                alertController.addButton("Close", action: self.resultsNil)
+                alertController.showInfo("Help", subTitle: "These are some reasons why you're getting this error\n\n • The email is badly formatted\n • The email isn't linked to an account")
+                
+            } else if languageChoice == "French" {
+                
+                let alertController = SCLAlertView()
+                alertController.addButton("Fermer", action: self.resultsNil)
+                alertController.showInfo("Aidez-moi", subTitle: "Voici quelques raisons pour lesquelles vous recevez cette erreur\n\n • TLe courriel est mal formaté\n • Le courriel n'est pas lié à un compte")
+                
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ class MilestoneTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        
+        milestoneDescriptionTextField.backgroundColor = UIColor(white: 1, alpha: 0.5)
         colourView.layer.cornerRadius = 15
         
     }

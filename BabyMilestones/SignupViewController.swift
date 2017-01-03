@@ -12,20 +12,48 @@ import FirebaseAuth
 
 class SignupViewController: UIViewController {
 
+    @IBOutlet var backgroundViews: UIView!
     @IBOutlet var usernameTextField: CustomizableTextField!
     @IBOutlet var emailTextField: CustomizableTextField!
     @IBOutlet var passwordTextField: CustomizableTextField!
+    @IBOutlet var signupButton: CustomizableButton!
+    @IBOutlet var backButton: CustomizableButton!
+    
+    let networkingService = NetworkingService()
     
     var databaseRef: FIRDatabaseReference! {
         return FIRDatabase.database().reference()
     }
     
-    let networkingService = NetworkingService()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if let languageChoice = UserDefaults.standard.value(forKey: "language") as? String {
+            if languageChoice == "English" {
+                
+                usernameTextField.placeholder = "Name"
+                emailTextField.placeholder = "Email"
+                passwordTextField.placeholder = "Password"
+                signupButton.setTitle("Sign up!", for: .normal)
+                backButton.setTitle("Back", for: .normal)
+                
+            } else if languageChoice == "French" {
+                
+                usernameTextField.placeholder = "Nom"
+                emailTextField.placeholder = "Émail"
+                passwordTextField.placeholder = "Mot de passe"
+                signupButton.setTitle("S'inscrire!", for: .normal)
+                backButton.setTitle("Arrière", for: .normal)
+                
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        backgroundViews.backgroundColor = UIColor.clear
     }
     
     

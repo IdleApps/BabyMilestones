@@ -13,9 +13,11 @@
 		A32A14181DD3CA7100863E6C /* MilestoneListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A14171DD3CA7100863E6C /* MilestoneListNavigationController.swift */; };
 		A32F1A1D1DD4E91A006C4902 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32F1A1C1DD4E919006C4902 /* Main.storyboard */; };
 		A32F1A211DD4EF55006C4902 /* MilestoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32F1A201DD4EF55006C4902 /* MilestoneTableViewController.swift */; };
+		A340CAA11DF36E870054007A /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A340CAA01DF36E870054007A /* LanguageSelectionViewController.swift */; };
 		A36F06FF1DD62D59008789B0 /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F06FE1DD62D59008789B0 /* Milestone.swift */; };
 		A36F07011DD64103008789B0 /* MilestoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36F07001DD64103008789B0 /* MilestoneTableViewCell.swift */; };
 		A378ECA01DE07B8100AC2770 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378EC9F1DE07B8100AC2770 /* Reachability.swift */; };
+		A37D48AC1DE8B96800B33F5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A37D48AB1DE8B96800B33F5F /* GoogleService-Info.plist */; };
 		A37D5AA51DDF6CF700F8697B /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D5AA41DDF6CF700F8697B /* SCLAlertView.swift */; };
 		A37D5AA81DDF6F0F00F8697B /* SCLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D5AA71DDF6F0F00F8697B /* SCLExtensions.swift */; };
 		A38669BD1DCF4C8C00EB4F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38669BC1DCF4C8C00EB4F56 /* AppDelegate.swift */; };
@@ -23,7 +25,6 @@
 		A38669C71DCF4C8C00EB4F56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38669C51DCF4C8C00EB4F56 /* LaunchScreen.storyboard */; };
 		A38669D21DCF4C8C00EB4F56 /* BabyMilestonesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38669D11DCF4C8C00EB4F56 /* BabyMilestonesTests.swift */; };
 		A38669DD1DCF4C8C00EB4F56 /* BabyMilestonesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38669DC1DCF4C8C00EB4F56 /* BabyMilestonesUITests.swift */; };
-		A38669EB1DCF4E0000EB4F56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A38669EA1DCF4E0000EB4F56 /* GoogleService-Info.plist */; };
 		A3946D051DDE36FA0027FA91 /* UpdateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3946D041DDE36FA0027FA91 /* UpdateTableViewController.swift */; };
 		A3A92BD31DD25C4B003204C7 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A92BD21DD25C4B003204C7 /* NetworkingService.swift */; };
 		A3F4EEB31DCFA25500351C90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F4EEB21DCFA25500351C90 /* LoginViewController.swift */; };
@@ -61,9 +62,11 @@
 		A32A14171DD3CA7100863E6C /* MilestoneListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilestoneListNavigationController.swift; sourceTree = "<group>"; };
 		A32F1A1C1DD4E919006C4902 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A32F1A201DD4EF55006C4902 /* MilestoneTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilestoneTableViewController.swift; sourceTree = "<group>"; };
+		A340CAA01DF36E870054007A /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
 		A36F06FE1DD62D59008789B0 /* Milestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
 		A36F07001DD64103008789B0 /* MilestoneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilestoneTableViewCell.swift; sourceTree = "<group>"; };
 		A378EC9F1DE07B8100AC2770 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		A37D48AB1DE8B96800B33F5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A37D5AA41DDF6CF700F8697B /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		A37D5AA71DDF6F0F00F8697B /* SCLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLExtensions.swift; sourceTree = "<group>"; };
 		A38669B91DCF4C8C00EB4F56 /* BabyMilestones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyMilestones.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,10 +80,9 @@
 		A38669D81DCF4C8C00EB4F56 /* BabyMilestonesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabyMilestonesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38669DC1DCF4C8C00EB4F56 /* BabyMilestonesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyMilestonesUITests.swift; sourceTree = "<group>"; };
 		A38669DE1DCF4C8C00EB4F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A38669EA1DCF4E0000EB4F56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A38669EC1DCF4F2B00EB4F56 /* BabyMilestones.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BabyMilestones.entitlements; sourceTree = "<group>"; };
 		A3946D041DDE36FA0027FA91 /* UpdateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTableViewController.swift; sourceTree = "<group>"; };
-		A3A92BD21DD25C4B003204C7 /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		A3A92BD21DD25C4B003204C7 /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		A3F4EEB21DCFA25500351C90 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A3F4EEB41DCFA29600351C90 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A3F4EEB61DCFA2A100351C90 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,8 @@
 				C097F5CA31F6FA3B0DCDBCDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
+			wrapsLines = 1;
 		};
 		A38669BA1DCF4C8C00EB4F56 /* Products */ = {
 			isa = PBXGroup;
@@ -178,7 +182,7 @@
 				A38669C31DCF4C8C00EB4F56 /* Assets.xcassets */,
 				A38669C51DCF4C8C00EB4F56 /* LaunchScreen.storyboard */,
 				A38669C81DCF4C8C00EB4F56 /* Info.plist */,
-				A38669EA1DCF4E0000EB4F56 /* GoogleService-Info.plist */,
+				A37D48AB1DE8B96800B33F5F /* GoogleService-Info.plist */,
 			);
 			path = BabyMilestones;
 			sourceTree = "<group>";
@@ -212,14 +216,15 @@
 		A3F4EEBE1DCFA44200351C90 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A3F4EEB41DCFA29600351C90 /* SignupViewController.swift */,
 				A3F4EEB21DCFA25500351C90 /* LoginViewController.swift */,
+				A3F4EEB41DCFA29600351C90 /* SignupViewController.swift */,
 				A3F4EEB61DCFA2A100351C90 /* ResetPasswordViewController.swift */,
 				A3F4EEBA1DCFA2C800351C90 /* AddMilestoneTableViewController.swift */,
+				A3946D041DDE36FA0027FA91 /* UpdateTableViewController.swift */,
 				A32A14171DD3CA7100863E6C /* MilestoneListNavigationController.swift */,
 				A32F1A201DD4EF55006C4902 /* MilestoneTableViewController.swift */,
 				A36F07001DD64103008789B0 /* MilestoneTableViewCell.swift */,
-				A3946D041DDE36FA0027FA91 /* UpdateTableViewController.swift */,
+				A340CAA01DF36E870054007A /* LanguageSelectionViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -227,9 +232,9 @@
 		A3F4EEC31DCFCB6D00351C90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A3F4EEC41DCFCBAC00351C90 /* CustomizableImageView.swift */,
 				A3F4EEC61DCFCEA300351C90 /* CustomizableButton.swift */,
 				A3F4EEC81DCFD06600351C90 /* CustomizableTextField.swift */,
+				A3F4EEC41DCFCBAC00351C90 /* CustomizableImageView.swift */,
 				A3A92BD21DD25C4B003204C7 /* NetworkingService.swift */,
 				A36F06FE1DD62D59008789B0 /* Milestone.swift */,
 				A378EC9F1DE07B8100AC2770 /* Reachability.swift */,
@@ -324,23 +329,35 @@
 				TargetAttributes = {
 					A38669B81DCF4C8C00EB4F56 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 8ZTZP6H6K9;
+						DevelopmentTeam = 23H556T6TV;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
 							};
 						};
 					};
 					A38669CC1DCF4C8C00EB4F56 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 8ZTZP6H6K9;
+						DevelopmentTeam = 23H556T6TV;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A38669B81DCF4C8C00EB4F56;
 					};
 					A38669D71DCF4C8C00EB4F56 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 8ZTZP6H6K9;
+						DevelopmentTeam = 23H556T6TV;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A38669B81DCF4C8C00EB4F56;
 					};
@@ -373,8 +390,8 @@
 			files = (
 				A38669C71DCF4C8C00EB4F56 /* LaunchScreen.storyboard in Resources */,
 				A32F1A1D1DD4E91A006C4902 /* Main.storyboard in Resources */,
-				A38669EB1DCF4E0000EB4F56 /* GoogleService-Info.plist in Resources */,
 				A38669C41DCF4C8C00EB4F56 /* Assets.xcassets in Resources */,
+				A37D48AC1DE8B96800B33F5F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +565,7 @@
 				A3F4EEB51DCFA29600351C90 /* SignupViewController.swift in Sources */,
 				A37D5AA51DDF6CF700F8697B /* SCLAlertView.swift in Sources */,
 				A36F06FF1DD62D59008789B0 /* Milestone.swift in Sources */,
+				A340CAA11DF36E870054007A /* LanguageSelectionViewController.swift in Sources */,
 				A3F4EEC51DCFCBAC00351C90 /* CustomizableImageView.swift in Sources */,
 				A3A92BD31DD25C4B003204C7 /* NetworkingService.swift in Sources */,
 				A38669BD1DCF4C8C00EB4F56 /* AppDelegate.swift in Sources */,
@@ -622,6 +640,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -673,6 +692,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -701,13 +721,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BabyMilestones/BabyMilestones.entitlements;
-				DEVELOPMENT_TEAM = 8ZTZP6H6K9;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 23H556T6TV;
 				INFOPLIST_FILE = BabyMilestones/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.IdleApps.BabyMilestones;
+				PRODUCT_BUNDLE_IDENTIFIER = com.IdleApps.BabyMilestonesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -717,13 +740,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BabyMilestones/BabyMilestones.entitlements;
-				DEVELOPMENT_TEAM = 8ZTZP6H6K9;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 23H556T6TV;
 				INFOPLIST_FILE = BabyMilestones/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.IdleApps.BabyMilestones;
+				PRODUCT_BUNDLE_IDENTIFIER = com.IdleApps.BabyMilestonesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -733,7 +759,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 8ZTZP6H6K9;
+				DEVELOPMENT_TEAM = 23H556T6TV;
 				INFOPLIST_FILE = BabyMilestonesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IdleApps.BabyMilestonesTests;
@@ -749,7 +775,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 8ZTZP6H6K9;
+				DEVELOPMENT_TEAM = 23H556T6TV;
 				INFOPLIST_FILE = BabyMilestonesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IdleApps.BabyMilestonesTests;
@@ -764,7 +790,7 @@
 			baseConfigurationReference = F56CB5FBC64E6413656BC194 /* Pods-BabyMilestonesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 8ZTZP6H6K9;
+				DEVELOPMENT_TEAM = 23H556T6TV;
 				INFOPLIST_FILE = BabyMilestonesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IdleApps.BabyMilestonesUITests;
@@ -779,7 +805,7 @@
 			baseConfigurationReference = 8609AEBEB88ADDAEC54C0973 /* Pods-BabyMilestonesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 8ZTZP6H6K9;
+				DEVELOPMENT_TEAM = 23H556T6TV;
 				INFOPLIST_FILE = BabyMilestonesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IdleApps.BabyMilestonesUITests;

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,16 +21,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BabyPicture" translatesAutoresizingMaskIntoConstraints="NO" id="kdf-mh-As9">
-                                <rect key="frame" x="59" y="205" width="256" height="256"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_TableView" translatesAutoresizingMaskIntoConstraints="NO" id="4Bc-SZ-hpP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L30-oj-2yM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dl8-Io-pUP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BabyPicture" translatesAutoresizingMaskIntoConstraints="NO" id="kdf-mh-As9">
+                                            <rect key="frame" x="59" y="205" width="256" height="256"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="256" id="s2O-NX-kNc"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="kdf-mh-As9" firstAttribute="leading" secondItem="dl8-Io-pUP" secondAttribute="leading" constant="59" id="HsO-bB-M04"/>
+                                        <constraint firstItem="kdf-mh-As9" firstAttribute="centerX" secondItem="dl8-Io-pUP" secondAttribute="centerX" id="n4u-Xe-pZO"/>
+                                        <constraint firstItem="kdf-mh-As9" firstAttribute="centerY" secondItem="dl8-Io-pUP" secondAttribute="centerY" id="u2h-q6-uiI"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.30399435758590698" green="0.43942499160766602" blue="0.65848952531814575" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99924248456954956" green="0.74002450704574585" blue="0.30227562785148621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kdf-mh-As9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="FRR-CS-IK4"/>
-                            <constraint firstItem="kdf-mh-As9" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="185" id="Lcy-vC-eK8"/>
-                            <constraint firstItem="kdf-mh-As9" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="43" id="OfK-Sq-u3d"/>
-                            <constraint firstItem="kdf-mh-As9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Uez-Q0-aSJ"/>
+                            <constraint firstItem="4Bc-SZ-hpP" firstAttribute="top" secondItem="L30-oj-2yM" secondAttribute="top" id="IR3-aY-StG"/>
+                            <constraint firstAttribute="trailing" secondItem="L30-oj-2yM" secondAttribute="trailing" id="KFk-jA-fuf"/>
+                            <constraint firstItem="4Bc-SZ-hpP" firstAttribute="leading" secondItem="L30-oj-2yM" secondAttribute="leading" id="OYD-WJ-6Al"/>
+                            <constraint firstItem="L30-oj-2yM" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Oms-4Y-bEM"/>
+                            <constraint firstItem="L30-oj-2yM" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="caN-iG-gjM"/>
+                            <constraint firstItem="4Bc-SZ-hpP" firstAttribute="trailing" secondItem="L30-oj-2yM" secondAttribute="trailing" id="ian-le-Sqq"/>
+                            <constraint firstItem="L30-oj-2yM" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="iv8-e3-9Ky"/>
+                            <constraint firstItem="4Bc-SZ-hpP" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="xk9-x8-Z1w"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,5 +66,6 @@
     </scenes>
     <resources>
         <image name="BabyPicture" width="96" height="96"/>
+        <image name="Image_TableView" width="1242" height="2208"/>
     </resources>
 </document>

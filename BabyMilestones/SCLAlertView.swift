@@ -5,8 +5,10 @@
 //  Created by Luke Cheskin on 18/11/16.
 //  Copyright © 2016 IdleApps. All rights reserved.
 //
+
 import Foundation
 import UIKit
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
     case let (l?, r?):
